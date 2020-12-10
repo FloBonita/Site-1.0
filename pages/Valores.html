@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Misão Visão e Valores</title>
+  </head>
+  <body>
+    <div id="secao-01" class="secao">
+      <div style="position: relative;">
+        <div class="#" style="text-align:left; width: 45%; float: left; padding-top: 0.5cm;font-size: 16px;text-align: justify;">
+          <img src="p/pergaminho.png"style="height:auto; float:left; padding:1cm;">
+          <h1 style="color:#fff; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 24px;">
+            Missão</h1>
+            <p style="color: rgba(255, 255, 255, 0.753);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              Ajudamos aos pequenos empreendedores a transformar seus sonhos em realidade.
+              Nosso objetivo é desenvolver serviços que melhorem a vida de tantas pessoas quanto possível.
+              Mesmo que os retornos financeiros de curto prazo não sejam óbvios. Temos orgulho dos produtos que construímos e esperamos que no futuro tenham um impacto positivo ainda maior no mundo.
+            </p>
+        </div>
+        <div class="#" style="text-align:left; width: 45%; float: left; padding-top: 0.5cm;font-size: 16px;">
+          <img src="p/foco.png"style="height:auto; float:left; padding:1cm;">
+          <h1 style="color:#fff; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 24px;">
+          Visão</h1>
+            <p style="color: rgba(255, 255, 255, 0.753);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              Um pequeno custo para uma grande mudança no mercado.
+            </p>
+        </div>
+        <div class="#" style="text-align:left; width: 45%; float: left; padding-top: 0.5cm;font-size: 16px;">
+          <img src="p/premio.png"style="height:auto; float:left; padding:1cm;">
+          <h1 style="color:#fff; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 24px;">
+            Valores</h1>
+            <p style="color: rgba(255, 255, 255, 0.753);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+               Competência; Organização de dados; Respeitar a sua privacidade; Honestidade; 
+               Qualidade nas informações; Inovação; Responsabilidade; Empenho para com os clientes,parceiros e tecnologia; 
+               Ética é inegociável.          
+            </p>
+        </div>             
+    </div>      
+  </body>
+  <style>
+    body {
+      margin: 0;
+      padding:0;
+    }
+    .secao {
+      position: relative;
+    }
+    #secao-01 {
+      background-color: #7108eb;
+    }
+    
+    .icone-scroll {
+      position: absolute;
+      bottom: 3em;
+      width: 50px;
+      height: 50px;
+      background-color: #1a1a1a;
+      border-radius: 50%;
+      left: 50%;
+      margin-left: -25px;
+      cursor: pointer;
+    }
+    .scroll {
+      width: 15px;
+      height: 15px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      display: inline-block;
+      position: relative;
+    }
+    .scroll-next {
+      transform: rotate(45deg);
+      margin: 14px 0 0 16.5px;
+    }
+    .scroll-top {
+      transform: rotate(225deg);
+      margin: 19px 0 0 17px;
+    }
+    .scroll-top + .scroll-top {
+      top: -15px;
+      margin-top: 0;
+    }
+  </style>
+  <script src="Scroll1.js"></script>
+  <script>
+      var _AlturaDocumento = $(window).height(); //pega altura da janela
+
+    function AlturaSecao() {
+      $('.secao').height(_AlturaDocumento); //atribui o valor da variável a todas as divs com a classe secao
+    }
+
+    function ScrollSecao() {
+      console.log('entrou');
+      var body = $('html, body');
+      if($(this).parent('.secao').is('#secao-01')) {
+        //verifica se está na primeira seção e rola para a segunda
+        body.animate({scrollTop: _AlturaDocumento}, '500');
+      } else if ($(this).parent('.secao').is('#secao-02')) {
+        //verifica se está na segunda seção e rola para a terceira
+        body.animate({scrollTop: _AlturaDocumento*2}, '500');
+      } else if ($(this).parent('.secao').is('#secao-03')) {
+        //verifica se está na terceira seção e rola para a quarta
+        body.animate({scrollTop: _AlturaDocumento*3}, '500');
+      } else {
+        //rola para o início da página
+        body.animate({scrollTop: 0}, '800');
+      }
+    }
+
+    $('.icone-scroll').click(ScrollSecao); //chama a função na ação de click no ícone
+
+    $(AlturaSecao); //chama a nossa função só depois que o documento estiver completamente carregado
+  </script>
+  <!--.: André Felizardo - Página com Seção :-->
+</html>

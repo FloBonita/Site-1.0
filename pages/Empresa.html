@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Nossa tragetória</title>
+    <link rel="stylesheet" href="bastardus/font.css"/> 
+  </head>
+  <body>
+    <section id="secao-01" class="secao">
+      <div>
+        <div class="#" style="text-align:left; width: 45%; float: left; padding-top: 0.5cm;font-size: 16px;text-align: justify; padding: 0 2cm;">
+          <h1 class="fonts"; style="color:#fff;">
+            Nossos Projetos</h1>           
+        </div>
+        <div class="#" style="text-align:left; width: 45%; float: left; padding-top: 0.5cm;font-size: 16px;text-align: justify;">
+          <a href="https://portal.barueri.sp.gov.br/secretarias/secretaria-da-mulher" target="_blank"> <img src="p/internet.png"style="height:auto; float:left; padding:1cm;"></a>
+          <h1 class="fonts"; style="color:#fff;">
+            Secretaria da mulher</h1>
+            <p style="color: rgba(255, 255, 255, 0.753);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              Temos como um dos nossos principais projetos.<br>
+              O site da secretária da mulher de Barueri, onde criamos um sistema em que mulheres podem denunciar anonimamente ou não, onde se pode relatar abusos e deixar depoimentos.
+            </p>
+        </div>
+        <div class="#" style="text-align:left; width: 45%; float: left; padding-top: 0.5cm;font-size: 16px;text-align: justify;">
+          <img src="p/caminhao.png"style="height:auto; float:left; padding:1cm;">
+          <h1 class="fonts"; style="color:#fff;">
+          Taiga</h1>
+            <p style="color: rgba(255, 255, 255, 0.753);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              Taiga transportes, sistema desenvolvido para agências de transporte, de ônibus, de viagens.
+            </p>
+        </div>
+        <div class="#" style="text-align:left; width: 45%; float: left; padding-top: 0.5cm;font-size: 16px;text-align: justify;">
+          <img src="p/gamepad.png"style="height:auto; float:left; padding:1cm;">
+          <h1 class="fonts"; style="color:#fff;">
+            Zoitec.</h1>
+            <p style="color: rgba(255, 255, 255, 0.753);font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+              Sistema e-commerce  desenvolvido para indústria tecnológica, periféricos e produtos gamers.
+            </p>
+        </div>
+      </div>
+     
+    </section>   
+  </body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .secao {
+      position: relative;
+    }
+    #secao-01 {
+      background-color: #21164c;
+    }
+    
+    .icone-scroll {
+      position: absolute;
+      bottom: 3em;
+      width: 50px;
+      height: 50px;
+      background-color: #1a1a1a;
+      border-radius: 50%;
+      left: 50%;
+      margin-left: -25px;
+      cursor: pointer;
+    }
+    .scroll {
+      width: 15px;
+      height: 15px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      display: inline-block;
+      position: relative;
+    }
+    .scroll-next {
+      transform: rotate(45deg);
+      margin: 14px 0 0 16.5px;
+    }
+    .scroll-top {
+      transform: rotate(225deg);
+      margin: 19px 0 0 17px;
+    }
+    .scroll-top + .scroll-top {
+      top: -15px;
+      margin-top: 0;
+    }
+  </style>
+  <script src="Scroll2.js"></script>
+  <script>
+      var _AlturaDocumento = $(window).height(); //pega altura da janela
+
+    function AlturaSecao() {
+      $('.secao').height(_AlturaDocumento); //atribui o valor da variável a todas as divs com a classe secao
+    }
+
+    function ScrollSecao() {
+      console.log('entrou');
+      var body = $('html, body');
+      if($(this).parent('.secao').is('#secao-01')) {
+        //verifica se está na primeira seção e rola para a segunda
+        body.animate({scrollTop: _AlturaDocumento}, '500');
+      } else if ($(this).parent('.secao').is('#secao-02')) {
+        //verifica se está na segunda seção e rola para a terceira
+        body.animate({scrollTop: _AlturaDocumento*2}, '500');
+      } else if ($(this).parent('.secao').is('#secao-03')) {
+        //verifica se está na terceira seção e rola para a quarta
+        body.animate({scrollTop: _AlturaDocumento*3}, '500');
+      } else {
+        //rola para o início da página
+        body.animate({scrollTop: 0}, '800');
+      }
+    }
+
+    $('.icone-scroll').click(ScrollSecao); //chama a função na ação de click no ícone
+
+    $(AlturaSecao); //chama a nossa função só depois que o documento estiver completamente carregado
+  </script>
+</html>
